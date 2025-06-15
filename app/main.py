@@ -22,4 +22,4 @@ Base.metadata.create_all(bind=engine)
 
 app.include_router(customers.router, prefix="/customers", tags=["Customers"])
 app.include_router(orders.router, prefix="/orders", tags=["Orders"])
-app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="static")
+#app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="static")
