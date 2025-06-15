@@ -6,7 +6,7 @@ function CustomersPage() {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/customers/')
+    axios.get('https://restaurant-backend-6evn.onrender.com/customers/')
       .then((res) => { 
         console.log("Fetched customers:", res.data)
         setCustomers(res.data);
@@ -17,7 +17,7 @@ function CustomersPage() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this customer?")) return;
     try {
-      await axios.delete(`http://localhost:8000/customers/${id}`);
+      await axios.delete(`https://restaurant-backend-6evn.onrender.com/customers/${id}`);
       setCustomers(prev => prev.filter(c => c.id !== id));
       alert("Customer deleted successfully.");
     } catch (error) {

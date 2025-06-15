@@ -24,7 +24,7 @@ function AddCustomer() {
     e.preventDefault();
     console.log('Submitting form data:', formData);
     try {
-      await axios.post('http://localhost:8000/customers/', formData);
+      await axios.post('https://restaurant-backend-6evn.onrender.com/customers/', formData);
       alert('Customer added!');
       navigate('/customers');
     } catch (error) {

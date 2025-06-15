@@ -8,7 +8,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://tastybites-org.netlify.app/"],  # frontend port
+    allow_origins=["*"],  # frontend port
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

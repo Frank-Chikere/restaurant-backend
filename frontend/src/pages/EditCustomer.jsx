@@ -18,7 +18,7 @@ function EditCustomer() {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/customers/${id}`)
+    axios.get(`https://restaurant-backend-6evn.onrender.com/customers/${id}`)
       .then(res => setFormData(res.data))
       .catch(err => alert("Failed to fetch customer."));
   }, [id]);
@@ -33,7 +33,7 @@ function EditCustomer() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8000/customers/${id}`, formData);
+      await axios.put(`https://restaurant-backend-6evn.onrender.com/customers/${id}`, formData);
       alert('Customer updated!');
       navigate('/customers');
     } catch (err) {

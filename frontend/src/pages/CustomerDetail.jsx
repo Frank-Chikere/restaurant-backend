@@ -9,7 +9,7 @@ function CustomerDetail() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/customers/${id}`)
+    axios.get(`https://restaurant-backend-6evn.onrender.com/customers/${id}`)
       .then((res) => {
         console.log("Fetched customer detail:", res.data);
         setCustomer(res.data);
