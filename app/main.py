@@ -1,14 +1,19 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.database import Base, engine
 from app.routers import customers, orders
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
+# ✅ Use your actual Netlify frontend domain
+origins = [
+    "https://tastybites-org.netlify.app"
+]
+
+# ✅ Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://tastybites-org.netlify.app/"],  # frontend port
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -22,4 +27,3 @@ Base.metadata.create_all(bind=engine)
 
 app.include_router(customers.router, prefix="/customers", tags=["Customers"])
 app.include_router(orders.router, prefix="/orders", tags=["Orders"])
-#app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="static")
